@@ -1,0 +1,54 @@
+body {
+   box-sizing: border-box;
+   margin: 0;
+}
+
+.ancient-container {
+   display: flex;
+   gap: 20px;
+}
+
+.ancient-card {
+   width: 200px;
+   height: 260px;
+   background-repeat: no-repeat;
+   background-size: contain;
+   cursor: pointer;
+}
+
+.azathoth {
+   background-image: url(./assets/Ancients/Azathoth.png);
+}
+
+.cthulhu {
+   background-image: url(./assets/Ancients/Cthulthu.png);
+}
+
+.iogSothoth {
+   background-image: url(./assets/Ancients/IogSothoth.png);
+}
+
+.shubNiggurath {
+   background-image: url(./assets/Ancients/ShubNiggurath.png);
+}
+
+
+.deck-container {
+   display: flex;
+   gap: 20px;
+}
+
+.deck,
+.last-card {
+   background-size: cover;
+   width: 130px;
+   height: 190px;
+}
+
+.deck {
+   background-image: url(./assets/mythicCardBackground.png);
+}
+
+.last-card {
+   background-color: antiquewhite;
+}
