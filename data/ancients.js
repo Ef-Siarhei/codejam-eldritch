@@ -7,23 +7,23 @@ const ancientsData = [
       // cardFace: Ancients.azathoth,
       firstStage: {
          greenCards: 1,
-         blueCards: 1,
          brownCards: 2,
+         blueCards: 1,
       },
       secondStage: {
          greenCards: 2,
-         blueCards: 1,
          brownCards: 3,
+         blueCards: 1,
       },
       thirdStage: {
          greenCards: 2,
-         blueCards: 0,
          brownCards: 4,
+         blueCards: 0,
       },
       allCard: {
          greenCards: 5,
-         blueCards: 2,
          brownCards: 9,
+         blueCards: 2,
       }
    },
    {
@@ -32,23 +32,23 @@ const ancientsData = [
       // cardFace: Ancients.cthulhu,
       firstStage: {
          greenCards: 0,
-         blueCards: 2,
          brownCards: 2,
+         blueCards: 2,
       },
       secondStage: {
          greenCards: 1,
-         blueCards: 0,
          brownCards: 3,
+         blueCards: 0,
       },
       thirdStage: {
          greenCards: 3,
-         blueCards: 0,
          brownCards: 4,
+         blueCards: 0,
       },
       allCard: {
          greenCards: 4,
-         blueCards: 2,
          brownCards: 9,
+         blueCards: 2,
       }
    },
    {
@@ -57,23 +57,23 @@ const ancientsData = [
       // cardFace: Ancients.iogSothoth,
       firstStage: {
          greenCards: 0,
-         blueCards: 1,
          brownCards: 2,
+         blueCards: 1,
       },
       secondStage: {
          greenCards: 2,
-         blueCards: 1,
          brownCards: 3,
+         blueCards: 1,
       },
       thirdStage: {
          greenCards: 3,
-         blueCards: 0,
          brownCards: 4,
+         blueCards: 0,
       },
       allCard: {
          greenCards: 5,
-         blueCards: 2,
          brownCards: 9,
+         blueCards: 2,
       }
    },
    {
@@ -82,23 +82,23 @@ const ancientsData = [
       // cardFace: Ancients.shubNiggurath,
       firstStage: {
          greenCards: 1,
-         blueCards: 1,
          brownCards: 2,
+         blueCards: 1,
       },
       secondStage: {
          greenCards: 3,
-         blueCards: 1,
          brownCards: 2,
+         blueCards: 1,
       },
       thirdStage: {
          greenCards: 2,
-         blueCards: 0,
          brownCards: 4,
+         blueCards: 0,
       },
       allCard: {
          greenCards: 6,
-         blueCards: 2,
          brownCards: 8,
+         blueCards: 2,
       }
    },
 ]

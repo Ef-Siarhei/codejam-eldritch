@@ -1,6 +1,7 @@
-import difficulties from "./data/difficulties.js";
 import ancients from "./data/ancients.js"
-import cardsBlue from "./assets/MythicCards/blue/blue.js"
+// import cardsBrown from "./assets/MythicCards/brown/brown.js"
+// import cardsBlue from "./assets/MythicCards/blue/blue.js"
+// import cardsGreen from "./assets/MythicCards/green/green.js"
 
 
 const ancient = document.querySelector('.ancient-container')
@@ -9,28 +10,49 @@ const cthulhu = document.querySelector('.cthulhu')
 const iogSothoth = document.querySelector('.iogSothoth')
 const shubNiggurath = document.querySelector('.shubNiggurath')
 
-let blueDesk = []
-let brownDesk = []
 let greenDesk = []
+let brownDesk = []
+let blueDesk = []
 
-console.log(difficulties)
-console.log(ancients)
-console.log(cardsBlue)
 
 let cardName
 ancient.addEventListener('click', function ({ target }) {
    cardName = [...this.children].indexOf(target)
-   blueDesk = []
-   brownDesk = []
    greenDesk = []
-   pushBlueDesk()
-   pushBrownDesk()
+   brownDesk = []
+   blueDesk = []
+   
+   stageOne = [[], [], []];
+   stageTwo = [[], [], []];
+   stageThree = [[], [], []];
+
    pushGreenDesk()
-   console.dir(blueDesk)
-   console.dir(brownDesk)
-   console.dir(greenDesk)
+   pushBrownDesk()
+   pushBlueDesk()
+
+   pushStage()
+   textStage()
+
 })
 
+function pushGreenDesk() {
+   let g = ancients[cardName].allCard.greenCards
+   while (greenDesk.length < g) {
+      let x = getRandomNum(1, 18)
+      if (greenDesk.indexOf(x) == -1) {         // проверим есть оно  у нас или нет 
+         greenDesk.push(x);         // записываем в массив т.к нету
+      }
+   }
+}
+function pushBrownDesk() {
+   let br = ancients[cardName].allCard.brownCards
+   while (brownDesk.length < br) {
+      let x = getRandomNum(1, 21)
+      if (brownDesk.indexOf(x) == -1) {         // проверим есть оно  у нас или нет 
+         brownDesk.push(x);         // записываем в массив т.к нету
+      }
+   }
+}
 function pushBlueDesk() {
    let bl = ancients[cardName].allCard.blueCards
    while (blueDesk.length < bl) {
@@ -40,41 +62,6 @@ function pushBlueDesk() {
       }
    }
 }
-function pushBrownDesk() {
-   let br = ancients[cardName].allCard.brownCards
-   while (brownDesk.length < br) {
-      let x = getRandomNum(1, 12)
-      if (brownDesk.indexOf(x) == -1) {         // проверим есть оно  у нас или нет 
-         brownDesk.push(x);         // записываем в массив т.к нету
-      }
-   }
-}
-function pushGreenDesk() {
-   let g = ancients[cardName].allCard.greenCards
-   while (greenDesk.length < g) {
-      let x = getRandomNum(1, 12)
-      if (greenDesk.indexOf(x) == -1) {         // проверим есть оно  у нас или нет 
-         greenDesk.push(x);         // записываем в массив т.к нету
-      }
-   }
-}
-
-
-// var arr = []                         //записываем в этот массив рандомные числа
-// var max;                              // максимальная длина массива 
-// var rundomnumber;                     //случайное число
-
-//  while (arr.length <= max) {
-
-//         rundomnumber = Math.floor(Math.random() * max); //создадим случайное число
-
-//         if (arr.indexOf(rundomnumber) == -1) {         // проверим есть оно  у нас или нет 
-
-//             arr.push(rundomnumber);         // записываем в массив т.к нету
-//         }
-//     }
-
-
 
 
 function getRandomNum(min, max) {
@@ -84,10 +71,184 @@ function getRandomNum(min, max) {
 }
 
 
+function pushStage() {
+   while (stageOne[0].length < ancients[cardName].firstStage.greenCards) 
+      stageOne[0].push('/green/green' + greenDesk.pop())
+   while (stageTwo[0].length < ancients[cardName].secondStage.greenCards) 
+      stageTwo[0].push('/green/green' + greenDesk.pop())
+   while (stageThree[0].length < ancients[cardName].thirdStage.greenCards) 
+      stageThree[0].push('/green/green' + greenDesk.pop())
+      
+   while (stageOne[1].length < ancients[cardName].firstStage.brownCards) 
+         stageOne[1].push('/brown/brown' + brownDesk.pop())
+   while (stageTwo[1].length < ancients[cardName].secondStage.brownCards) 
+         stageTwo[1].push('/brown/brown' + brownDesk.pop())
+   while (stageThree[1].length < ancients[cardName].thirdStage.brownCards) 
+      stageThree[1].push('/brown/brown' + brownDesk.pop())
+   
+   while (stageOne[2].length < ancients[cardName].firstStage.blueCards) 
+         stageOne[2].push('/blue/blue' + blueDesk.pop())
+   while (stageTwo[2].length < ancients[cardName].secondStage.blueCards) 
+         stageTwo[2].push('/blue/blue' + blueDesk.pop())
+   while (stageThree[2].length < ancients[cardName].thirdStage.blueCards) 
+      stageThree[2].push('/blue/blue' + blueDesk.pop())
+}
+
+let stageOne = [[], [], []];
+let stageTwo = [[], [], []];
+let stageThree = [[], [], []];
 
 
+const  st1_g = document.querySelector(".st1-g")
+const  st1_br = document.querySelector(".st1-br")
+const  st1_bl = document.querySelector(".st1-bl")
+const  st2_g = document.querySelector(".st2-g")
+const  st2_br = document.querySelector(".st2-br")
+const  st2_bl = document.querySelector(".st2-bl")
+const  st3_g = document.querySelector(".st3-g")
+const  st3_br = document.querySelector(".st3-br")
+const  st3_bl = document.querySelector(".st3-bl")
+
+function textStage(){
+st1_g.textContent = stageOne[0].length
+st1_br.textContent = stageOne[1].length
+st1_bl.textContent = stageOne[2].length
+st2_g.textContent = stageTwo[0].length
+st2_br.textContent = stageTwo[1].length
+st2_bl.textContent = stageTwo[2].length
+st3_g.textContent = stageThree[0].length
+st3_br.textContent = stageThree[1].length
+st3_bl.textContent = stageThree[2].length
+}
+
+
+
+const deck = document.querySelector('.deck')
 const last = document.querySelector('.last-card')
-// last.style.backgroundImage = "url('./assets/MyThicCards/blue/blue1.png')"
-last.style.backgroundImage = `url(${cardsBlue.blue1})`
 
+deck.addEventListener('click', () => {
+   let a
+   if ((stageOne[0].length || stageOne[1].length || stageOne[2].length) !== 0) {
+      function showCard() {
+         let i = getRandomNum(0, 2)
+         stageOne[i].length !== 0 ? a = stageOne[i].pop() : showCard();
+      }
+      showCard()
+      st1_g.textContent = stageOne[0].length
+      st1_br.textContent = stageOne[1].length
+      st1_bl.textContent = stageOne[2].length
+   } else
+      if ((stageTwo[0].length || stageTwo[1].length || stageTwo[2].length) !== 0) {
+      function showCard() {
+         let i = getRandomNum(0, 2)
+         stageTwo[i].length !== 0 ? a = stageTwo[i].pop() : showCard();
+      }
+      showCard()
+      st2_g.textContent = stageTwo[0].length
+      st2_br.textContent = stageTwo[1].length
+      st2_bl.textContent = stageTwo[2].length
+      } else
+         if ((stageThree[0].length || stageThree[1].length || stageThree[2].length) !== 0) {
+      function showCard() {
+         let i = getRandomNum(0, 2)
+         stageThree[i].length !== 0 ? a = stageThree[i].pop() : showCard();
+      }
+      showCard()
+      st3_g.textContent = stageThree[0].length
+      st3_br.textContent = stageThree[1].length
+      st3_bl.textContent = stageThree[2].length
+   }
+   last.style.backgroundImage = `url('./assets/MyThicCards${a}.png')`
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   // var arr = []                         //записываем в этот массив рандомные числа
+   // var max;                              // максимальная длина массива 
+   // var rundomnumber;                     //случайное число
+   
+   //  while (arr.length <= max) {
+   
+   //         rundomnumber = Math.floor(Math.random() * max); //создадим случайное число
+   
+   //         if (arr.indexOf(rundomnumber) == -1) {         // проверим есть оно  у нас или нет 
+   
+   //             arr.push(rundomnumber);         // записываем в массив т.к нету
+   //         }
+   //     }
+   
 // console.log(ancients)
