@@ -1,8 +1,4 @@
 import ancients from "./data/ancients.js"
-// import cardsBrown from "./assets/MythicCards/brown/brown.js"
-// import cardsBlue from "./assets/MythicCards/blue/blue.js"
-// import cardsGreen from "./assets/MythicCards/green/green.js"
-
 
 const ancient = document.querySelector('.ancient-container')
 const azathoth = document.querySelector('.azathoth')
@@ -10,9 +6,41 @@ const cthulhu = document.querySelector('.cthulhu')
 const iogSothoth = document.querySelector('.iogSothoth')
 const shubNiggurath = document.querySelector('.shubNiggurath')
 
+const difficulty = document.querySelector('.difficulty-container')
+const normal = document.querySelector('.normal')
+const shuffleButton = document.querySelector('.shuffle-button')
+const deckContainer = document.querySelector('.deck-container')
+const desk = document.querySelector('.deck')
+
 let greenDesk = []
 let brownDesk = []
 let blueDesk = []
+
+
+azathoth.addEventListener('click', () => {
+   azathoth.classList.add("active");
+   cthulhu.classList.remove("active");
+   iogSothoth.classList.remove("active");
+   shubNiggurath.classList.remove("active");
+})
+cthulhu.addEventListener('click', () => {
+   cthulhu.classList.add("active");
+   azathoth.classList.remove("active");
+   iogSothoth.classList.remove("active");
+   shubNiggurath.classList.remove("active");
+})
+iogSothoth.addEventListener('click', () => {
+   iogSothoth.classList.add("active");
+   azathoth.classList.remove("active");
+   cthulhu.classList.remove("active");
+   shubNiggurath.classList.remove("active");
+})
+shubNiggurath.addEventListener('click', () => {
+   iogSothoth.classList.remove("active");
+   azathoth.classList.remove("active");
+   cthulhu.classList.remove("active");
+   shubNiggurath.classList.add("active");
+})
 
 
 let cardName
@@ -29,11 +57,29 @@ ancient.addEventListener('click', function ({ target }) {
    pushGreenDesk()
    pushBrownDesk()
    pushBlueDesk()
-
+   
    pushStage()
    textStage()
-
+   
+   difficulty.classList.remove('visibility')
+   normal.classList.remove('activeDiff') 
+   shuffleButton.classList.remove('activeDiff') 
+   shuffleButton.classList.add('visibility')
+   deckContainer.classList.add('visibility')
+   desk.classList.remove('visibility') 
+   last.style.backgroundImage = 'none'
 })
+
+
+normal.addEventListener('click', () => {
+   normal.classList.add('activeDiff') 
+   shuffleButton.classList.remove('visibility')
+})
+shuffleButton.addEventListener('click', () => {
+   shuffleButton.classList.add('activeDiff') 
+   deckContainer.classList.remove('visibility')
+})
+
 
 function pushGreenDesk() {
    let g = ancients[cardName].allCard.greenCards
@@ -122,7 +168,6 @@ st3_bl.textContent = stageThree[2].length
 }
 
 
-
 const deck = document.querySelector('.deck')
 const last = document.querySelector('.last-card')
 
@@ -158,8 +203,17 @@ deck.addEventListener('click', () => {
       st3_br.textContent = stageThree[1].length
       st3_bl.textContent = stageThree[2].length
    }
+   
    last.style.backgroundImage = `url('./assets/MyThicCards${a}.png')`
+
+   let remainderCard = stageThree[0].length + stageThree[1].length + stageThree[2].length
+         if (remainderCard === 0) { 
+            desk.classList.add('visibility')
+         } 
 })
+
+
+
 
 
 
