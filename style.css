@@ -1,11 +1,25 @@
 body {
    box-sizing: border-box;
    margin: 0;
+   overflow: hidden;
+}
+
+.app {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+   height: 100vh;
+   background-image: url(./assets/home.png);
+   background-size: cover;
 }
 
 .ancient-container {
    display: flex;
-   gap: 20px;
+   justify-content: center;
+   gap: 5%;
+   width: 100vw;
+   margin: 40px 0;
 }
 
 .ancient-card {
@@ -14,6 +28,14 @@ body {
    background-repeat: no-repeat;
    background-size: contain;
    cursor: pointer;
+}
+
+.active {
+   border: 2px solid rgb(61, 223, 17);
+}
+
+.activeDiff {
+   background-color: rgba(62, 223, 17, 0.308);
 }
 
 .azathoth {
@@ -36,7 +58,7 @@ body {
 .deck-container {
    display: flex;
    align-items: center;
-   gap: 20px;
+   gap: 30px;
 }
 
 .deck,
@@ -50,14 +72,28 @@ body {
    background-image: url(./assets/mythicCardBackground.png);
 }
 
-.last-card {
-   background-color: antiquewhite;
-}
-
 .difficulty-container {
    display: flex;
    gap: 20px;
+   color: rgb(167, 167, 174);
 }
+
+.shuffle-button {
+   color: rgb(167, 167, 174);
+   margin-top: 10px;
+}
+
+.difficulty-container,
+.shuffle-button,
+.deck-container {
+   transition: .5s;
+}
+
+.visibility {
+   visibility: hidden;
+   opacity: 0;
+}
+
 
 .difficulty,
 .shuffle-button {
@@ -66,7 +102,7 @@ body {
    justify-content: center;
    width: 200px;
    padding: 10px;
-   border: 2px solid rgb(81, 86, 236);
+   border: 2px solid rgb(112, 112, 118);
    border-radius: 50%;
 }
 
@@ -107,5 +143,5 @@ body {
 }
 
 .stage-text {
-   color: brown;
+   color: rgb(194, 183, 183);
 }
