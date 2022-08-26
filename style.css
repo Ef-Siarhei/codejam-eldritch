@@ -70,17 +70,20 @@ body {
 
 .deck {
    background-image: url(./assets/mythicCardBackground.png);
+   cursor: pointer;
 }
 
 .difficulty-container {
    display: flex;
    gap: 20px;
    color: rgb(167, 167, 174);
+   cursor: pointer;
 }
 
 .shuffle-button {
    color: rgb(167, 167, 174);
    margin-top: 10px;
+   cursor: pointer;
 }
 
 .difficulty-container,
