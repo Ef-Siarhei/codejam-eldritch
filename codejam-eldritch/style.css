@@ -1,0 +1,150 @@
+body {
+   box-sizing: border-box;
+   margin: 0;
+   overflow: hidden;
+}
+
+.app {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+   height: 100vh;
+   background-image: url(./assets/home.png);
+   background-size: cover;
+}
+
+.ancient-container {
+   display: flex;
+   justify-content: center;
+   gap: 5%;
+   width: 100vw;
+   margin: 40px 0;
+}
+
+.ancient-card {
+   width: 200px;
+   height: 260px;
+   background-repeat: no-repeat;
+   background-size: contain;
+   cursor: pointer;
+}
+
+.active {
+   border: 2px solid rgb(61, 223, 17);
+}
+
+.activeDiff {
+   background-color: rgba(62, 223, 17, 0.308);
+}
+
+.azathoth {
+   background-image: url(./assets/Ancients/Azathoth.png);
+}
+
+.cthulhu {
+   background-image: url(./assets/Ancients/Cthulthu.png);
+}
+
+.iogSothoth {
+   background-image: url(./assets/Ancients/IogSothoth.png);
+}
+
+.shubNiggurath {
+   background-image: url(./assets/Ancients/ShubNiggurath.png);
+}
+
+
+.deck-container {
+   display: flex;
+   align-items: center;
+   gap: 30px;
+}
+
+.deck,
+.last-card {
+   background-size: cover;
+   width: 130px;
+   height: 190px;
+}
+
+.deck {
+   background-image: url(./assets/mythicCardBackground.png);
+   cursor: pointer;
+}
+
+.difficulty-container {
+   display: flex;
+   gap: 20px;
+   color: rgb(167, 167, 174);
+   cursor: pointer;
+}
+
+.shuffle-button {
+   color: rgb(167, 167, 174);
+   margin-top: 10px;
+   cursor: pointer;
+}
+
+.difficulty-container,
+.shuffle-button,
+.deck-container {
+   transition: .5s;
+}
+
+.visibility {
+   visibility: hidden;
+   opacity: 0;
+}
+
+
+.difficulty,
+.shuffle-button {
+   display: flex;
+   text-align: center;
+   justify-content: center;
+   width: 200px;
+   padding: 10px;
+   border: 2px solid rgb(112, 112, 118);
+   border-radius: 50%;
+}
+
+.stage-container {
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+   align-items: center;
+   justify-content: center;
+   margin: 15px;
+   font-size: 20px;
+}
+
+.dots-container {
+   display: flex;
+   gap: 10px;
+}
+
+.dot {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+}
+
+.green {
+   background-color: rgb(57, 171, 57);
+}
+
+.brown {
+   background-color: rgb(132, 98, 55);
+}
+
+.blue {
+   background-color: rgb(32, 117, 234);
+}
+
+.stage-text {
+   color: rgb(194, 183, 183);
+}
